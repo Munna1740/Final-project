@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container">
+    <h1 class="h1-text-align">Welcome to <strong class="h1-home-strong">Interview Preparation System</strong></h1>
+    <br>
+    <div class="container2">
+        <section id="header" class=" align-items-center">
+            <div>
+                <form enctype="multipart/form-data" action="/profile/upload_resume/" method="post">{% csrf_token   %}
+                    <div class="input-group mb-3">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="inputGroupFile02" name="resume_upload" required>
+                            <label class="custom-file-label" for="inputGroupFile02">Upload CV here</label>
+                        </div>
+                        <div class="input-group-append">
+                            <input type="submit" class="input-group-text" id="" value="Upload"/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <br>
+            <br>
+            <div class="mt-3">
+                <a to="/questions" class="btn-get-started">Interview Preparation Questions for You</a>
+            </div>
+            <div class="mt-3">
+                <a to="/jobpost" class="btn-get-started">Suitable Job for You</a>
+            </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+<p>{% for q in questionlist %}
+    {{ q.question  }}
+    {{ q.ans  }}
+{% endfor %}
+
+</p>
+</body>
+</html>
